@@ -1,18 +1,20 @@
 package com.hendyirawan.tweetlist05;
 
+import android.app.ListActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
-public class TweetListActivity extends ActionBarActivity {
+public class TweetListActivity extends ListActivity {
 
     protected final String[] prefixes = new String[] { "Car", "Bird", "Elephant", "Phone", "Building" };
 
@@ -27,10 +29,11 @@ public class TweetListActivity extends ActionBarActivity {
             final String name = prefixes[rand.nextInt(prefixes.length)] + ' ' + (rand.nextInt(10) + 1);
             names.add(name);
         }
-        final ArrayAdapter<String> tweetsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
-                names.toArray(new String[]{}));
+//        final ArrayAdapter<String> tweetsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
+//                names.toArray(new String[]{}));
+        final TweetAdapter tweetsAdapter = new TweetAdapter(this, names.toArray(new String[]{}));
 
-        final ListView lvTweet = (ListView) findViewById(R.id.lv_tweet);
+        final ListView lvTweet = getListView();
         lvTweet.setAdapter(tweetsAdapter);
     }
 
@@ -54,5 +57,12 @@ public class TweetListActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        final TextView itemBody = (TextView) v.findViewById(R.id.tv_body);
+        itemBody.setText("I was clicked!!");
     }
 }
