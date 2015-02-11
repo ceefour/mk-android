@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hello Twitter</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_twitter">Hello Twitter</string>
+    <string name="lbl_username">Username</string>
+    <string name="lbl_enter_username">Enter Username</string>
+    <string name="lbl_pwd">Password</string>
+    <string name="lbl_hint_pwd">Enter Password</string>
+    <string name="lbl_login">Login</string>
+    <string name="title_activity_tweet_list">Tweets</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="no_tweet_found">No Tweet found</string>
+
+</resources>
